@@ -10,6 +10,7 @@ body {
     align-items: center;
     margin: 0 auto;
     text-align: center;
+    padding-bottom: 1%;
 }
 
 .PokemonEncyclopedia-layout {
@@ -88,3 +89,5 @@ p {
     background-color: #3b58c0;
     transform: scale(90%);
 }
+
+/* Result Styles */
