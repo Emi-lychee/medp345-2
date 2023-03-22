@@ -1,17 +1,39 @@
-// Pokemon Info and Stats (From IDs)
+const pokeCard = document.querySelector('[pokeCard]');
 const pokeName = document.querySelector('[pokeName]');
+const pokeContainer = document.querySelector('[pokeContainer]');
 const pokeImg = document.querySelector('[pokeImg]');
-const pokeId = document.querySelector('[pokeId]');
-const pokeTypes = document.querySelector('[pokeTypes]');
-const pokeAbilities = document.querySelector('[pokeAbilities]');
-const pokeHP = document.querySelector('[pokeHP]');
-const pokeAttack = document.querySelector('[pokeAttack]');
-const pokeDefense = document.querySelector('[pokeDefense]');
-const pokeSpecialAttack = document.querySelector('[pokeSpecialAttack]');
-const pokeSpecialDefense = document.querySelector('[pokeSpecialDefense]');
-const pokeSpeed = document.querySelector('[pokeSpeed]');
+const pokeID = document.querySelector('[pokeID]');
+const pokeType = document.querySelector('[pokeType]');
+const pokeAbility = document.querySelector('[pokeAbility]')
+const pokeHP = document.querySelector('[pokeHP]')
+const pokeAttack = document.querySelector('[pokeAttack]')
+const pokeSpecialAttack = document.querySelector('[pokeSpecialAttack]')
+const pokeDef = document.querySelector('[pokeDef]')
+const pokeSpecialDef = document.querySelector('[pokeSpecialDef]')
+const pokeSpeed = document.querySelector('[pokeSpeed]')
 
-// Searching Up A Pokemon
+const colors = {
+  normal: '#A8A77A',
+  fire: '#EE8130',
+  water: '#6390F0',
+  electric: '#F7D02C',
+  grass: '#7AC74C',
+  ice: '#96D9D6',
+  fighting: '#C22E28',
+  poison: '#A33EA1',
+  ground: '#E2BF65',
+  flying: '#A98FF3',
+  psychic: '#F95587',
+  bug: '#A6B91A',
+  rock: '#B6A136',
+  ghost: '#735797',
+  dragon: '#6F35FC',
+  dark: '#705746',
+  steel: '#B7B7CE',
+  fairy: 'D685AD',
+  default: '#FFFFFF',
+};
+
 const search = event => {
   event.preventDefault();
   const {value} = event.target.pokemon;
@@ -21,25 +43,42 @@ const search = event => {
   .catch(err => noPokemon())
 }
 
-// Search Results
+// const cardColor = types => {
+//   const colorOne = colors[types[0].type.name];
+//   const color = types[1] ? colors[types[1].type.name] : colors.default;
+//   pokeImg.style.background =  `radial-gradient(${color} 33%, ${colorOne} 33%)`;
+//   pokeImg.style.backgroundSize = '60px 60px';
+// }
 
+const PokemonTypes = types => {
+  pokeType.innerHTML = '';
+  types.forEach(type => {
+    const typeTextElement = document.createElement("div");
+    typeTextElement.style.color = colors[type.type.name];
+    typeTextElement.textContent = type.type.name;
+    pokeType.appendChild(typeTextElement);
+  })
+}
 
-// Color Coding the Pokemon
-
-
-// Pulling Data From the API
 const outPokemon = data => {
   console.log(data);
   const sprite = data.sprites.front_default;
   const {stats, types} = data;
   pokeName.textContent = data.name;
   pokeImg.setAttribute('src', sprite);
-  pokeId.textContent = `ID Number: ${data.id}`;
-  pokeTypes.textContent = `Types: ${data.types.map(type => type.type.name).join(", ")}`;
-  pokeAbilities.textContent = `Abilities: ${data.abilities.map(ability => ability.ability.name).join(", ")}`;
+  // cardColor(types);
+  pokeID.textContent = `ID Number: ${data.id}`;
+  PokemonTypes(types);
+  pokeAbility.textContent = `Abilities: ${data.abilities.map(ability => ability.ability.name).join(", ")}`;
   pokeHP.textContent = `Base HP: ${data.stats.find(stat => stat.stat.name === "hp").base_stat}`;
   pokeAttack.textContent = `Attack: ${data.stats.find(stat => stat.stat.name === "attack").base_stat}`;
   pokeSpecialAttack.textContent = `Special Attack: ${data.stats.find(stat => stat.stat.name === "special-attack").base_stat}`;
-  pokeSpecialDefense.textContent = `Special Defense: ${data.stats.find(stat => stat.stat.name === "special-defense").base_stat}`;
+  pokeDef.textContent = `Defense: ${data.stats.find(stat => stat.stat.name === "defense").base_stat}`;
+  pokeSpecialDef.textContent =  `Special Defense: ${data.stats.find(stat => stat.stat.name === "special-defense").base_stat}`;
   pokeSpeed.textContent = `Speed: ${data.stats.find(stat => stat.stat.name === "speed").base_stat}`;
+}
+
+const noPokemon = () => {
+  // pokeName.textContent = 'Pokemon not found. Please check your spelling.';
+  // pokeImg.setAttribute('src', '');
 }

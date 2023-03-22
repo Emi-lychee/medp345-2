@@ -17,13 +17,13 @@ body {
 }
 
 /* Landing Page: IMG Styles */
-.pokemon-logo-resize img {
+.pokemon-logo-resize img{
     width: 30%;
     height: auto;
     padding-top: 2%;
 }
 
-.pokeball-resize img {
+.pokeball-resize img{
     width: 8%;
     height: auto;
     padding-top: 1%;
@@ -43,7 +43,7 @@ h1 {
     font-weight: bolder;
 }
 
-p {
+p{
     color: #2757FF;
     font-weight: 600;
     padding: 2%;
@@ -56,7 +56,7 @@ p {
     font-size: 20px;
     border-radius: 50px;
     padding: 1% 2%;
-}
+  }
   
 
 /* Search Bar Button Styles */
@@ -76,7 +76,7 @@ p {
     color: white;
     background-color: #4F76FF;
     cursor: pointer;
-}
+  }
 
 #submit:active {
     background-color: #3b58c0;
