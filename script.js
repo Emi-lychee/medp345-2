@@ -30,7 +30,7 @@ const colors = {
   dragon: '#6F35FC',
   dark: '#705746',
   steel: '#B7B7CE',
-  fairy: 'D685AD',
+  fairy: '#D685AD',
   default: '#FFFFFF',
 };
 
@@ -53,12 +53,11 @@ const PokemonTypes = types => {
   })
 }
 
-// const cardColor = types => {
-//   const colorOne = colors[types[0].type.name];
-//   const color = types[1] ? colors[types[1].type.name] : colors.default;
-//   pokeImg.style.background =  `radial-gradient(${color} 33%, ${colorOne} 33%)`;
-//   pokeImg.style.backgroundSize = '60px 60px';
-// }
+const cardColor = types => {
+  const colorType = colors[types[0].type.name];
+  pokeImg.style.background =  colorType;
+  pokeImg.style.backgroundSize = '50px 50px';
+}
 
 const outPokemon = data => {
   console.log(data);
@@ -75,7 +74,7 @@ const outPokemon = data => {
   pokeDef.textContent = `Defense: ${data.stats.find(stat => stat.stat.name === "defense").base_stat}`;
   pokeSpecialDef.textContent =  `Special Defense: ${data.stats.find(stat => stat.stat.name === "special-defense").base_stat}`;
   pokeSpeed.textContent = `Speed: ${data.stats.find(stat => stat.stat.name === "speed").base_stat}`;
-  // cardColor(types);
+  cardColor(types);
 }
 
 const noPokemon = () => {
