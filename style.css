@@ -20,6 +20,12 @@ body {
 .pokemon-logo-resize img {
     width: 30%;
     height: auto;
+    padding-top: 5%;
+}
+
+.pokemon-logo-resize-search img {
+    width: 15%;
+    height: auto;
     padding-top: 2%;
 }
 

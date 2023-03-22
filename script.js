@@ -79,6 +79,6 @@ const outPokemon = data => {
 }
 
 const noPokemon = () => {
-  // pokeName.textContent = 'Pokemon not found. Please check your spelling.';
-  // pokeImg.setAttribute('src', '');
+  pokeName.textContent = 'Pokemon not found. Please check your spelling.';
+  pokeImg.setAttribute('src', '');
 }
