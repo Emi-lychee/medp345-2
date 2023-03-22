@@ -1,9 +1,9 @@
 const pokeCard = document.querySelector('[pokeCard]');
 const pokeName = document.querySelector('[pokeName]');
+const pokeType = document.querySelector('[pokeType]');
 const pokeContainer = document.querySelector('[pokeContainer]');
 const pokeImg = document.querySelector('[pokeImg]');
 const pokeID = document.querySelector('[pokeID]');
-const pokeType = document.querySelector('[pokeType]');
 const pokeAbility = document.querySelector('[pokeAbility]')
 const pokeHP = document.querySelector('[pokeHP]')
 const pokeAttack = document.querySelector('[pokeAttack]')
@@ -43,13 +43,6 @@ const search = event => {
   .catch(err => noPokemon())
 }
 
-// const cardColor = types => {
-//   const colorOne = colors[types[0].type.name];
-//   const color = types[1] ? colors[types[1].type.name] : colors.default;
-//   pokeImg.style.background =  `radial-gradient(${color} 33%, ${colorOne} 33%)`;
-//   pokeImg.style.backgroundSize = '60px 60px';
-// }
-
 const PokemonTypes = types => {
   pokeType.innerHTML = '';
   types.forEach(type => {
@@ -60,15 +53,21 @@ const PokemonTypes = types => {
   })
 }
 
+// const cardColor = types => {
+//   const colorOne = colors[types[0].type.name];
+//   const color = types[1] ? colors[types[1].type.name] : colors.default;
+//   pokeImg.style.background =  `radial-gradient(${color} 33%, ${colorOne} 33%)`;
+//   pokeImg.style.backgroundSize = '60px 60px';
+// }
+
 const outPokemon = data => {
   console.log(data);
   const sprite = data.sprites.front_default;
   const {stats, types} = data;
   pokeName.textContent = data.name;
-  pokeImg.setAttribute('src', sprite);
-  // cardColor(types);
-  pokeID.textContent = `ID Number: ${data.id}`;
   PokemonTypes(types);
+  pokeImg.setAttribute('src', sprite);
+  pokeID.textContent = `ID Number: ${data.id}`;
   pokeAbility.textContent = `Abilities: ${data.abilities.map(ability => ability.ability.name).join(", ")}`;
   pokeHP.textContent = `Base HP: ${data.stats.find(stat => stat.stat.name === "hp").base_stat}`;
   pokeAttack.textContent = `Attack: ${data.stats.find(stat => stat.stat.name === "attack").base_stat}`;
@@ -76,6 +75,7 @@ const outPokemon = data => {
   pokeDef.textContent = `Defense: ${data.stats.find(stat => stat.stat.name === "defense").base_stat}`;
   pokeSpecialDef.textContent =  `Special Defense: ${data.stats.find(stat => stat.stat.name === "special-defense").base_stat}`;
   pokeSpeed.textContent = `Speed: ${data.stats.find(stat => stat.stat.name === "speed").base_stat}`;
+  // cardColor(types);
 }
 
 const noPokemon = () => {

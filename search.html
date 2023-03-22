@@ -20,27 +20,29 @@
             </div>
         </div>
         <br><br><br><br><br><br>
+        <p>Type in the name or ID of any Pokémon you like and learn about its abilities and stats!</p>
+        <br>
         <section id="container">
             <form action="" method="get" onsubmit="search(event)">
                 <input id="input" type="text" name="pokemon" autocomplete="off" placeholder="Search...">
                 <button id="submit">GO</button>
             </form>
-            <br><br><br>
+            <br><br>
             <div id="pokeCard" pokeCard>
                 <div id="pokeName" pokeName></div>
+                <div id="pokeType" pokeType></div>
                 <div id="imgContainer" imgContainer>
                     <img id="pokeImg" pokeImg src=""/>
                 </div>
+                <div id="pokeID" pokeID></div>
+                <div id="pokeAbility" pokeAbility></div>
+                <div id="pokeHP" pokeHP></div>
+                <div id="pokeAttack" pokeAttack></div>
+                <div id="pokeSpecialAttack" pokeSpecialAttack></div>
+                <div id="pokeDef" pokeDef></div>
+                <div id="pokeSpecialDef" pokeSpecialDef></div>
+                <div id="pokeSpeed" pokeSpeed></div>
             </div>
-            <div id="pokeID" pokeID></div>
-            <div id="pokeType" pokeType></div>
-            <div id="pokeAbility" pokeAbility></div>
-            <div id="pokeHP" pokeHP></div>
-            <div id="pokeAttack" pokeAttack></div>
-            <div id="pokeSpecialAttack"></div>
-            <div id="pokeDef" pokeDef></div>
-            <div id="pokeSpecialDef" pokeSpecialDef></div>
-            <div id="pokeSpeed" pokeSpeed></div>
         </section>
     </div>
     <!-- <script src="https://pokeapi.co/api/v2/pokemon?limit=151"></script> -->
