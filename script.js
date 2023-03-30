@@ -64,6 +64,7 @@ const outPokemon = data => {
   const sprite = data.sprites.front_default;
   const {stats, types} = data;
   pokeName.textContent = data.name;
+  pokeName.style.textTransform = 'capitalize';
   PokemonTypes(types);
   pokeImg.setAttribute('src', sprite);
   pokeID.textContent = `ID Number: ${data.id}`;
