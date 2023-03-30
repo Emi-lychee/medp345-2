@@ -104,6 +104,14 @@ p {
     grid-row-end: 3;
 }
 
+.searchbar a {
+    color: #2757FF;
+}
+
+.searchbar a:hover {
+    color: #ffffff;
+}
+
 /* Search Bar Styles */
 #input {
     border: 2px solid #2757FF;
@@ -266,7 +274,6 @@ p {
     text-align: center;
     padding-bottom: 1%;
 }
-
 .PokemonEncyclopedia-layout {
     display: block;
 }
@@ -277,13 +284,11 @@ p {
     height: auto;
     padding-top: 5%;
 }
-
 #pokemon-logo-resize-search img {
     width: 15%;
     height: auto;
     padding-top: 2%;
 }
-
 .pokeball-resize img {
     width: 8%;
     height: auto;
@@ -291,7 +296,6 @@ p {
     padding-bottom: 1%;
     transition: all 1s ease-out;
 }
-
 .pokeball-resize img:hover {
     transform: scale(150px);
     transform: rotate(360deg);
@@ -303,7 +307,6 @@ p {
     font-size: 50px;
     font-weight: bolder;
 }
-
 p {
     color: #2757FF;
     font-weight: 600;
@@ -331,14 +334,12 @@ p {
     background-color: white;
     transition: all .1s linear;
 }
-
 #submit:hover{
     box-shadow: 0 6px 0 #006599;
     color: white;
     background-color: #4F76FF;
     cursor: pointer;
 }
-
 #submit:active {
     background-color: #3b58c0;
     transform: scale(90%);
