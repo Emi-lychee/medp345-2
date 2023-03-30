@@ -39,6 +39,7 @@ for (let i = 1; i <= 898; i++) {
 
     const pokeName = document.createElement('p');
     pokeName.textContent = data.name;
+    pokeName.style.textTransform = 'capitalize';
 
     const spriteUrl = data.sprites.front_default;
     const spriteImg = document.createElement('img');
